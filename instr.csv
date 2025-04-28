@@ -1,0 +1,17 @@
+Opcode, Tipo, Mnemonic, Nome, Operação, WE, OP_R0, ALU_SRC, ALU_OP, W_SRC, MEM_WE, BRANCH, JUMP
+0000, R, brzr, Branch On Zero Register, if (R[ra] == 0) PC = R[rb], 0, 0, 0, 000, 0, 0, 1, 0
+0001, I, ji, Jump Immediate, PC = PC + Imm., 0, 0, 0, 000, 0, 0, 0, 1
+0010, R ld Load R[ra] = M[ R[rb] ], 
+0011, R st Store M[ R[rb] ] = R[ra]
+0100, I addi Add Immediate R[0] = R[0] + Imm.
+0101, R, mov, Move, R[ra] = R[rb]
+0110, R, jr, Jump Register, PC = R[ra]
+0111, I, gpciu, Get PC plus immiediate, R[0] = PC + Unsig. Imm.
+1000, R, not, Not, R[ra] = not R[rb]
+1001, R, and, And, R[ra] = R[ra] and R[rb]
+1010, R, or, Or, R[ra] = R[ra] or R[rb]
+1011, R, xor, Xor, R[ra] = R[ra] xor R[rb]
+1100, R, add, Add, R[ra] = R[ra] + R[rb]
+1101, R, sub, Sub, R[ra] = R[ra] - R[rb]
+1110, R, slr, Shift Left Register, R[ra] = R[ra] << R[rb]
+1111, R, srr, Shift Right Register, R[ra] = R[ra] >> R[rb]
