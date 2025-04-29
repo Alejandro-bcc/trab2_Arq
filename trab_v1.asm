@@ -8,18 +8,25 @@
 
 	slr r0, r0
 	slr r0, r0
-	slr r0, r0  ; calcula endereco base de memoria
+	slr r0, r2
+	slr r0, r2
+	slr r0, r2  ; calcula endereco base de memoria
 	mov r1, r0  ; salva em r1
 
-	st r3, r1,  ; salva iterador na memoria no endereco base
-	pciu        ; calcula endereco do comeco do laco
+	st r3, r1  ; salva iterador na memoria no endereco base
+	gpci 7      ; calcula endereco do comeco do laco
+	addi 3
 	add r1, r2  
 	st r0, r1   ; salva no endereco base + 1
 	add r1, r2
-	addi        ; calcula endereco do fim do laco
+	addi 7       ; calcula endereco do fim do laco
+	addi 7
+	addi 7
+	addi 5
+
 	st r0, r1   ; salva em endereco base + 2
 	sub r1, r2
-	mov r1, r2
+	mov r0, r1
 	sub r1, r2  ; deixa de novo o endereco base em r1
 
 loop:
