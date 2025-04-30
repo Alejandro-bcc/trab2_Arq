@@ -5,17 +5,14 @@
 
 	addi 1
 	mov r2, r0  ; salva 1 em r2
-
-	slr r0, r0
-	slr r0, r0
-	slr r0, r2
-	slr r0, r2
-	slr r0, r2  ; calcula endereco base de memoria
+	
+	addi 4
+	slr r0, r0  ; calcula endereco base de memoria
 	mov r1, r0  ; salva em r1
 
 	st r3, r1  ; salva iterador na memoria no endereco base
 	gpci 7      ; calcula endereco do comeco do laco
-	addi 3
+	addi 6
 	add r1, r2  
 	st r0, r1   ; salva no endereco base + 1
 	add r1, r2
@@ -40,6 +37,7 @@ loop:
 	mov r0, r1  ; coloca o endereco base em r0
 	ld r3, r0   ; resgata o iterador e coloca em r3
 	addi 3      ; desloca ate a primeira posicao do vetor A
+	add r0, r3
 
 	slr r3, r2  ; r3 = iterador * 2
 
@@ -50,7 +48,7 @@ loop:
 
 	add r3, r2  ; r3 = ()iterador * 2) + 1
 
-	st r3, r2   ; salva em B[]0]
+	st r3, r0   ; salva em B[]0]
 
 	addi 5
 	addi 5      ; desloca na memoria
@@ -71,14 +69,18 @@ loop:
 fim_loop:
 
 	add r1, r2   
-	pciu 
+	gpci 7
+	addi 7
 	st r0, r1  ; salva endereco do comeco do laco da soma em na memoria
 	add r1, r2 
-	addi
+	addi 7
+	addi 7
+	addi 7
+	addi 2
 	st r0, r1  ; salva endereco do fim do laco da soma na memoria
-	sub r1, r1
+	sub r1, r2
 	mov r0, r1 ; deixa endereco base + 1 em r0
-	sub r1, r1
+	sub r1, r2
 
 	sub r3, r3
 	st r3, r1  ; reinicia iterador
@@ -91,8 +93,11 @@ loopS:
 	addi -5    ; calcula interacao atual
 	brzr r0, r3
 
-	mov r1, r0 ; carrega endereco base de memoria em r0
+	mov r0, r1 ; carrega endereco base de memoria em r0
 	addi 3     ; desloca ate a primeira posicao do vetor A
+
+	ld r3, r1  ; carrega iterador em r3
+	add r0, r3 
 
 	ld r2, r0  ; carrega A[i] em r2
 
