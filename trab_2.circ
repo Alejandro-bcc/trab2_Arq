@@ -145,7 +145,11 @@
     <comp lib="0" loc="(420,160)" name="Tunnel">
       <a name="label" val="BRANCH"/>
     </comp>
-    <comp lib="0" loc="(450,390)" name="Clock"/>
+    <comp lib="0" loc="(450,390)" name="Clock">
+      <a name="highDuration" val="2"/>
+      <a name="lowDuration" val="2"/>
+      <a name="phaseOffset" val="1"/>
+    </comp>
     <comp lib="0" loc="(470,390)" name="Tunnel">
       <a name="label" val="CLK"/>
     </comp>
